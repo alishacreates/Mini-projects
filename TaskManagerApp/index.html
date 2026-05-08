@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager App</title>
+    <style>
+        body{
+            background-color: black;
+            text-align: center;
+            gap: 5px;
+        }
+        #heading{
+            color: bisque;
+            text-align: center;
+        }
+        .checkbox{
+            height: 20px;
+            width: 20px;
+            border: 2px solid burlywood;
+        }
+        #tasks{
+            color: rgb(215, 221, 250);
+            display: inline-block;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1 id="heading">Task Manager App</h1>
+    <input type="text" id="task" placeholder="enter your task">
+    <button id="add">Add task</button>
+    <button onclick="">delete task</button>
+    <br>
+    <div id="tasks">
+    </div>
+
+    <script>
+        let add = document.getElementById("add");
+        let tasks = document.getElementById("tasks");
+        let input = document.getElementById("task");
+        add.addEventListener("click", ()=>{
+            const li = document.createElement("li");
+            const checkbox = document.createElement("button")
+            const deleteButton = document.createElement("button");
+            li.textContent = input.value;
+            checkbox.className = "checkbox";
+            checkbox.type = "button";
+            tasks.appendChild(checkbox);
+            tasks.appendChild(li);
+            tasks.appendChild(deleteButton);
+                deleteButton.addEventListener("click", ()=>{
+                tasks.removeChild(checkbox);
+                tasks.removeChild(li);
+                tasks.removeChild(deleteButton);
+                });
+            input.value="";
+        })
+        function deleteTask(){
+
+        }
+    </script>
+</body>
+</html>
